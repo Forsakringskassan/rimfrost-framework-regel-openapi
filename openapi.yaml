@@ -1,0 +1,39 @@
+openapi: 3.1.0
+info:
+  title: Regel API
+  version: 1.0.0
+  description: >
+    Gemensamt API för alla regeltyper (manuell och maskinell).
+    Innehåller endpoints som är identiska oavsett regelimplementation.
+
+paths:
+  /{handlaggningId}/komplettering/done:
+    post:
+      tags: [KompletteringController]
+      operationId: kompletteringDone
+      summary: Markera komplettering som klar
+      description: >
+        Verifierar att yrkandet är komplett och triggar regelkörningen med det
+        lagrade korrelationstillståndet. Avslutar OUL-uppgiften.
+      parameters:
+        - name: handlaggningId
+          in: path
+          required: true
+          description: ID för handläggningsärendet vars komplettering är klar
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "204":
+          description: Komplettering accepterad och OUL-uppgift avslutad
+        "207":
+          description: >
+            Komplettering accepterad och regelkörning triggad, men avslutning
+            av OUL-uppgiften misslyckades — uppgiften kan fortfarande visas
+            som öppen
+        "409":
+          description: >
+            Timeout har redan tömt korrelationstillståndet — kompletteringen
+            kan inte längre registreras
+        "422":
+          description: Yrkandet är fortfarande ofullständigt efter kompletteringen
