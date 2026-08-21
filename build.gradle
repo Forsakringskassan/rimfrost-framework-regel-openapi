@@ -36,6 +36,10 @@ project("rimfrost-framework-regel-openapi-jaxrs-spec",{
 		generatorName.set("jaxrs-spec")
 	}
 
+	tasks.withType(Javadoc).configureEach {
+		options.addStringOption('Xdoclint:none', '-quiet')
+	}
+
 	dependencies {
 		compileOnly 'jakarta.ws.rs:jakarta.ws.rs-api:4.0.0'
 		compileOnly 'jakarta.annotation:jakarta.annotation-api:3.0.0'
