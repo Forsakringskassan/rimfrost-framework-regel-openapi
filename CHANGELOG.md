@@ -1,3 +1,9 @@
+## 0.0.2 (2026-09-21)
+
+### Bug Fixes
+
+-  Suppress doclint for generated jaxrs-spec to allow void @return tags ([3780f](https://github.com/Forsakringskassan/rimfrost-framework-regel-openapi/commit/3780f9c84339945) Ulf Slunga)  
+
 # rimfrost-framework-regel-openapi changelog
 
 Changelog of rimfrost-framework-regel-openapi.
