@@ -1,3 +1,9 @@
+## 0.0.3 (2026-11-17)
+
+### Bug Fixes
+
+-  dummy bump to trigger 0.0.4 release ([e64d7](https://github.com/Forsakringskassan/rimfrost-framework-regel-openapi/commit/e64d7721c5491bd) Ulf Slunga)  
+
 ## 0.0.2 (2026-09-21)
 
 ### Bug Fixes
